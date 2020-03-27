@@ -2,6 +2,7 @@
   "name": "framework7-source",
   "version": "0.0.0",
   "scripts": {
+    "build": "npm run build-core:dev -- --config scripts/my-build-config.js --output build",
     "build:dev": "cross-env-shell NODE_ENV=development \"gulp build-core && gulp phenome && gulp build-vue && gulp build-react && gulp build-svelte\"",
     "build:prod": "cross-env-shell NODE_ENV=production \"gulp build-core && gulp phenome && gulp build-vue && gulp build-react && gulp build-svelte\"",
     "build-core-icons-font": "python ./scripts/icon-font/generate.py",
