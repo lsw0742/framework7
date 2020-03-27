@@ -48,15 +48,15 @@ export default {
       {
         // Shortcuts
         alert(...args) {
-          let [text, title, callbackOk] = args;
+          let [text, title, callbackOk, buttonOk] = args;
           if (args.length === 2 && typeof args[1] === 'function') {
-            [text, callbackOk, title] = args;
+            [text, callbackOk, title, buttonOk] = args;
           }
           return new Dialog(app, {
             title: typeof title === 'undefined' ? defaultDialogTitle() : title,
             text,
             buttons: [{
-              text: app.params.dialog.buttonOk,
+              text: buttonOk || app.params.dialog.buttonOk,
               bold: true,
               onClick: callbackOk,
               keyCodes: keyboardActions ? [13, 27] : null,
@@ -96,22 +96,22 @@ export default {
           }).open();
         },
         confirm(...args) {
-          let [text, title, callbackOk, callbackCancel] = args;
+          let [text, title, callbackOk, callbackCancel, buttonOk, buttonCancel] = args;
           if (typeof args[1] === 'function') {
-            [text, callbackOk, callbackCancel, title] = args;
+            [text, callbackOk, callbackCancel, title, buttonOk, buttonCancel] = args;
           }
           return new Dialog(app, {
             title: typeof title === 'undefined' ? defaultDialogTitle() : title,
             text,
             buttons: [
               {
-                text: app.params.dialog.buttonCancel,
+                text: buttonCancel || app.params.dialog.buttonCancel,
                 onClick: callbackCancel,
                 keyCodes: keyboardActions ? [27] : null,
                 color: app.theme === 'aurora' ? 'gray' : null,
               },
               {
-                text: app.params.dialog.buttonOk,
+                text: buttonOk || app.params.dialog.buttonOk,
                 bold: true,
                 onClick: callbackOk,
                 keyCodes: keyboardActions ? [13] : null,
