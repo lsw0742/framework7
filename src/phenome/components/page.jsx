@@ -259,6 +259,8 @@ export default {
       'onPageBeforeOut',
       'onPageAfterOut',
       'onPageAfterIn',
+      'onPageShow',
+      'onPageHide',
       'onPageBeforeRemove',
       'onPageBeforeUnmount',
       'onPageStack',
@@ -285,6 +287,8 @@ export default {
       f7.on('pageBeforeOut', self.onPageBeforeOut);
       f7.on('pageAfterOut', self.onPageAfterOut);
       f7.on('pageAfterIn', self.onPageAfterIn);
+      f7.on('pageShow', self.onPageShow);
+      f7.on('pageHide', self.onPageHide);
       f7.on('pageBeforeRemove', self.onPageBeforeRemove);
       f7.on('pageBeforeUnmount', self.onPageBeforeUnmount);
       f7.on('pageStack', self.onPageStack);
@@ -310,6 +314,8 @@ export default {
     f7.off('pageBeforeOut', self.onPageBeforeOut);
     f7.off('pageAfterOut', self.onPageAfterOut);
     f7.off('pageAfterIn', self.onPageAfterIn);
+    f7.off('pageShow', self.onPageShow);
+    f7.off('pageHide', self.onPageHide);
     f7.off('pageBeforeRemove', self.onPageBeforeRemove);
     f7.off('pageBeforeUnmount', self.onPageBeforeUnmount);
     f7.off('pageStack', self.onPageStack);
@@ -413,6 +419,14 @@ export default {
         routerPositionClass: 'page-current',
       });
       this.dispatchEvent('page:afterin pageAfterIn', page);
+    },
+    onPageShow(page) {
+      if (this.eventTargetEl !== page.el) return;
+      this.dispatchEvent('page:show pageShow', page);
+    },
+    onPageHide(page) {
+      if (this.eventTargetEl !== page.el) return;
+      this.dispatchEvent('page:hide pageHide', page);
     },
     onPageBeforeRemove(page) {
       if (this.eventTargetEl !== page.el) return;

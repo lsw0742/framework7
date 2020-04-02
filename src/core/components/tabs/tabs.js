@@ -104,6 +104,12 @@ const Tab = {
     if (!swiper || (swiper && !swiper.animating) || (swiper && tabRoute)) {
       $oldTabEl.trigger('tab:hide');
       app.emit('tabHide', $oldTabEl[0]);
+
+      // Trigger 'hide' event on tab view's current page
+      $oldTabEl.children('.page.page-current').forEach((pageEl) => {
+        pageEl.f7Page.$el.trigger('page:hide', pageEl.f7Page);
+        app.emit('pageHide', pageEl.f7Page);
+      });
     }
 
     // Trigger 'show' event on new tab
@@ -111,6 +117,12 @@ const Tab = {
     if (!swiper || (swiper && !swiper.animating) || (swiper && tabRoute)) {
       $newTabEl.trigger('tab:show');
       app.emit('tabShow', $newTabEl[0]);
+
+      // Trigger 'show' event on tab view's current page
+      $newTabEl.children('.page.page-current').forEach((pageEl) => {
+        pageEl.f7Page.$el.trigger('page:show', pageEl.f7Page);
+        app.emit('pageShow', pageEl.f7Page);
+      });
     }
 
     // Find related link for new tab

@@ -937,6 +937,15 @@ class Router extends Framework7Class {
         $pageEl[0].f7Page = null;
       }
     }
+
+    // trigger other customized Events
+    if (callback === 'afterIn') {
+      $pageEl.trigger('page:show', page);
+      router.emit('pageShow', page);
+    } else if (callback === 'afterOut') {
+      $pageEl.trigger('page:hide', page);
+      router.emit('pageHide', page);
+    }
   }
 
   saveHistory() {
