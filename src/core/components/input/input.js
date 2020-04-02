@@ -60,17 +60,24 @@ const Input = {
   },
   validateRules($inputEl) {
     const validity = $inputEl[0].validity;
-    if (!validity || !validity.valid) {
+    const rules = $inputEl.prop('rules');
+
+    if (!rules || rules.length < 1) {
       return validity;
     }
-    const rules = $inputEl.prop('rules');
-    for (let i = 0; rules && i < rules.length; i += 1) {
+
+    let i = 0;
+    for (; i < rules.length; i += 1) {
       const v = rules[i]($inputEl.val());
       if (typeof v === 'string' || v === false) {
         $inputEl[0].setCustomValidity(v);
         break;
       }
     }
+    if (i === rules.length) {
+      $inputEl[0].setCustomValidity('');
+    }
+
     return validity;
   },
   validate(inputEl) {
