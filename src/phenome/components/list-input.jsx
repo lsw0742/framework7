@@ -62,7 +62,7 @@ export default {
     inputStyle?: React.CSSProperties
     */
     pattern: String,
-    validate: [Boolean, String],
+    validate: { type: [Boolean, String], default() { return this.rules && this.rules.length > 0; } },
     validateOnBlur: Boolean,
     tabindex: [String, Number],
     resizable: Boolean,
@@ -92,6 +92,9 @@ export default {
     colorPickerParams: Object,
     // Text editor
     textEditorParams: Object,
+
+    // validate rules
+    rules: Array,
 
     // Colors
     ...Mixins.colorProps,
@@ -162,6 +165,7 @@ export default {
       inlineLabel,
       floatingLabel,
       textEditorParams,
+      rules,
     } = props;
 
     const domValue = self.domValue();
@@ -278,6 +282,7 @@ export default {
               readOnly: readonly,
               multiple,
               required,
+              rules,
               ...valueProps,
             }}
           >

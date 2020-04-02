@@ -58,12 +58,27 @@ const Input = {
       }
     }
   },
+  validateRules($inputEl) {
+    const validity = $inputEl[0].validity;
+    if (!validity || !validity.valid) {
+      return validity;
+    }
+    const rules = $inputEl.prop('rules');
+    for (let i = 0; rules && i < rules.length; i += 1) {
+      const v = rules[i]($inputEl.val());
+      if (typeof v === 'string' || v === false) {
+        $inputEl[0].setCustomValidity(v);
+        break;
+      }
+    }
+    return validity;
+  },
   validate(inputEl) {
     const $inputEl = $(inputEl);
     if (!$inputEl.length) return;
     const $itemInputEl = $inputEl.parents('.item-input');
     const $inputWrapEl = $inputEl.parents('.input');
-    const validity = $inputEl[0].validity;
+    const validity = Input.validateRules($inputEl);
     const validationMessage = $inputEl.dataset().errorMessage || $inputEl[0].validationMessage || '';
     if (!validity) return true;
     if (!validity.valid) {
