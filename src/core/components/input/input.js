@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import $ from 'dom7';
 import { window, document } from 'ssr-window';
 import Utils from '../../utils/utils';
@@ -64,7 +65,7 @@ const Input = {
     const $inputWrapEl = $inputEl.parents('.input');
     const validity = $inputEl[0].validity;
     const validationMessage = $inputEl.dataset().errorMessage || $inputEl[0].validationMessage || '';
-    if (!validity) return;
+    if (!validity) return true;
     if (!validity.valid) {
       let $errorEl = $inputEl.nextAll('.item-input-error-message, .input-error-message');
       if (validationMessage) {
@@ -86,12 +87,17 @@ const Input = {
       $inputWrapEl.removeClass('input-invalid input-with-error-message');
       $inputEl.removeClass('input-invalid');
     }
+    return validity.valid;
   },
   validateInputs(el) {
     const app = this;
+    let valid = true;
     $(el).find('input, textarea, select').each((index, inputEl) => {
-      app.input.validate(inputEl);
+      if (!app.input.validate(inputEl) && valid) {
+        valid = false;
+      }
     });
+    return valid;
   },
   focus(inputEl) {
     const $inputEl = $(inputEl);
