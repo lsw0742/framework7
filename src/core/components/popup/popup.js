@@ -7,7 +7,7 @@ export default {
     popup: {
       backdrop: true,
       backdropEl: undefined,
-      closeByBackdropClick: true,
+      closeByBackdropClick: false,
       closeOnEscape: false,
       swipeToClose: false,
       swipeHandler: null,
