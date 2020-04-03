@@ -27,6 +27,10 @@ export namespace Input {
       validate(inputEl : HTMLElement | CSSSelector) : boolean
       /** Validate all inputs in passed container */
       validateInputs(containerEl : HTMLElement | CSSSelector) : boolean
+      /** Reset Validate input*/
+      resetValidate(inputEl : HTMLElement | CSSSelector) : void
+      /** Reset Validate all inputs in passed container */
+      resetValidateInputs(containerEl : HTMLElement | CSSSelector) : void      
     }
   }
   interface AppParams {

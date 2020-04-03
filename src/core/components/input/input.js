@@ -121,6 +121,24 @@ const Input = {
     });
     return valid;
   },
+  resetValidate(inputEl) {
+    const $inputEl = $(inputEl);
+    if (!$inputEl.length) return;
+    const $itemInputEl = $inputEl.parents('.item-input');
+    const $inputWrapEl = $inputEl.parents('.input');
+
+    $itemInputEl.removeClass('item-input-invalid item-input-with-error-message');
+    $inputWrapEl.removeClass('input-invalid input-with-error-message');
+    $inputEl.removeClass('input-invalid');
+
+    inputEl.setCustomValidity('');
+  },
+  resetValidateInputs(el) {
+    const app = this;
+    $(el).find('input, textarea, select').each((index, inputEl) => {
+      app.input.resetValidate(inputEl);
+    });
+  },
   focus(inputEl) {
     const $inputEl = $(inputEl);
     const type = $inputEl.attr('type');
@@ -294,6 +312,8 @@ export default {
         blur: Input.blur.bind(app),
         validate: Input.validate.bind(app),
         validateInputs: Input.validateInputs.bind(app),
+        resetValidate: Input.resetValidate.bind(app),
+        resetValidateInputs: Input.resetValidateInputs.bind(app),
         checkEmptyState: Input.checkEmptyState.bind(app),
         resizeTextarea: Input.resizeTextarea.bind(app),
         init: Input.init.bind(app),
