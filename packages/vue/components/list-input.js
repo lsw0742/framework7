@@ -33,6 +33,7 @@ export default {
     name: String,
     value: [String, Number, Array, Date, Object],
     defaultValue: [String, Number, Array],
+    inputmode: String,
     readonly: Boolean,
     required: Boolean,
     disabled: Boolean,
@@ -56,6 +57,7 @@ export default {
     pattern: String,
     validate: [Boolean, String],
     validateOnBlur: Boolean,
+    onValidate: Function,
     tabindex: [String, Number],
     resizable: Boolean,
     clearButton: Boolean,
@@ -114,6 +116,7 @@ export default {
       readonly,
       required,
       disabled,
+      inputmode,
       placeholder,
       inputId,
       size,
@@ -204,6 +207,7 @@ export default {
             name: name,
             type: needsType ? inputType : undefined,
             placeholder: placeholder,
+            inputmode: inputmode,
             id: inputId,
             size: size,
             accept: accept,
@@ -318,6 +322,16 @@ export default {
   },
 
   watch: {
+    'props.colorPickerParams': function watchValue() {
+      const self = this;
+      if (!self.$f7 || !self.f7ColorPicker) return;
+      Utils.extend(self.f7ColorPicker.params, self.colorPickerParams || {});
+    },
+    'props.calendarParams': function watchValue() {
+      const self = this;
+      if (!self.$f7 || !self.f7Calendar) return;
+      Utils.extend(self.f7Calendar.params, self.calendarParams || {});
+    },
     'props.value': function watchValue() {
       const self = this;
       if (!self.$f7) return;
@@ -495,14 +509,20 @@ export default {
       if (!f7 || !inputEl) return;
       const validity = inputEl.validity;
       if (!validity) return;
+      const {
+        onValidate
+      } = self.props;
 
       if (!validity.valid) {
+        if (onValidate) onValidate(false);
+
         if (self.state.inputInvalid !== true) {
           self.setState({
             inputInvalid: true
           });
         }
       } else if (self.state.inputInvalid !== false) {
+        if (onValidate) onValidate(true);
         self.setState({
           inputInvalid: false
         });

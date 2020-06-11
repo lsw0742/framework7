@@ -2,12 +2,10 @@
   import { createEventDispatcher, onMount, onDestroy } from 'svelte';
   import Mixins from '../utils/mixins';
   import Utils from '../utils/utils';
+  import restProps from '../utils/rest-props';
   import f7 from '../utils/f7';
 
   const dispatch = createEventDispatcher();
-
-  export let id = undefined;
-  export let style = undefined;
 
   let className = undefined;
   export { className as class };
@@ -49,6 +47,23 @@
     Mixins.colorClasses($$props),
   );
 
+  function onSwipeStart(instance) {
+    dispatch('popupSwipeStart', [instance]);
+    if (typeof $$props.onPopupSwipeStart === 'function') $$props.onPopupSwipeStart(instance);
+  }
+  function onSwipeMove(instance) {
+    dispatch('popupSwipeMove', [instance]);
+    if (typeof $$props.onPopupSwipeMove === 'function') $$props.onPopupSwipeMove(instance);
+  }
+  function onSwipeEnd(instance) {
+    dispatch('popupSwipeEnd', [instance]);
+    if (typeof $$props.onPopupSwipeEnd === 'function') $$props.onPopupSwipeEnd(instance);
+  }
+  function onSwipeClose(instance) {
+    dispatch('popupSwipeClose', [instance]);
+    if (typeof $$props.onPopupSwipeClose === 'function') $$props.onPopupSwipeClose(instance);
+  }
+
   function onOpen(instance) {
     dispatch('popupOpen', [instance]);
     if (typeof $$props.onPopupOpen === 'function') $$props.onPopupOpen(instance);
@@ -83,6 +98,10 @@
     const popupParams = {
       el,
       on: {
+        swipeStart: onSwipeStart,
+        swipeMove: onSwipeMove,
+        swipeEnd: onSwipeEnd,
+        swipeClose: onSwipeClose,
         open: onOpen,
         opened: onOpened,
         close: onClose,
@@ -110,10 +129,9 @@
   });
 </script>
 <div
-  id={id}
-  style={style}
   class={classes}
   bind:this={el}
+  {...restProps($$restProps)}
 >
   <slot />
 </div>

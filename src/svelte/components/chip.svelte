@@ -3,14 +3,12 @@
 
   import Mixins from '../utils/mixins';
   import Utils from '../utils/utils';
+  import restProps from '../utils/rest-props';
   import hasSlots from '../utils/has-slots';
 
   import Icon from './icon.svelte';
 
   const dispatch = createEventDispatcher();
-
-  export let id = undefined;
-  export let style = undefined;
 
   let className = undefined;
   export { className as class };
@@ -41,6 +39,8 @@
   $: hasMediaSlots = hasSlots(arguments, 'media');
   // eslint-disable-next-line
   $: hasTextSlots = hasSlots(arguments, 'text');
+  // eslint-disable-next-line
+  $: hasDefaultSlots = hasSlots(arguments, 'default');
 
   $: hasIcon = $$props.icon || $$props.iconMaterial || $$props.iconF7 || $$props.iconMd || $$props.iconIos || $$props.iconAurora;
 
@@ -56,7 +56,7 @@
 </script>
 <!-- svelte-ignore a11y-missing-attribute -->
 <!-- svelte-ignore a11y-missing-content -->
-<div id={id} style={style} class={classes} on:click={onClick}>
+<div class={classes} on:click={onClick} {...restProps($$restProps)}>
   {#if media || hasMediaSlots || hasIcon}
     <div class={mediaClasses}>
       {#if hasIcon}
@@ -75,10 +75,11 @@
       <slot name="media" />
     </div>
   {/if}
-  {#if text || hasTextSlots}
+  {#if text || hasTextSlots || hasDefaultSlots}
     <div class="chip-label">
       {Utils.text(text)}
       <slot name="text" />
+      <slot />
     </div>
   {/if}
   {#if deleteable}

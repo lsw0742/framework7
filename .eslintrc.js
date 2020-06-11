@@ -60,6 +60,7 @@ module.exports = {
     'react/prop-types': ['off'],
     'linebreak-style': ['off'],
     'arrow-parens': ['off'],
+    'arrow-body-style': ['off'],
     'prefer-object-spread': ['off'],
   },
   overrides: [
@@ -80,6 +81,7 @@ module.exports = {
         'import/first': ['off'],
         'import/no-unresolved': ['off'],
         'import/no-extraneous-dependencies': ['off'],
+        'import/prefer-default-export': ['off'],
         'import/extensions': ['off'],
         'no-multiple-empty-lines': ['off'],
         'no-undef-init': ['off'],
