@@ -1,3 +1,7 @@
 {
-  "eslint.enable": true,
+  	"eslint.enable": true,
+    "editor.fontSize": 18,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'Courier New'",
+    "workbench.colorTheme": "Monokai Dimmed"
 }
