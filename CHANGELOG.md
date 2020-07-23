@@ -2,6 +2,36 @@
 
 # Change Log
 
+# [v5.7.10](https://github.com/framework7io/framework7/compare/v5.7.9...v5.7.10) - July 14, 2020
+  * Core
+    * Tooltip
+      * Fixed issue with positioning for SVG elements
+
+# [v5.7.9](https://github.com/framework7io/framework7/compare/v5.7.8...v5.7.9) - July 12, 2020
+  * Core
+    * Router Component
+      * Fixed issue with multiple event handler arguments
+    * Searchbar
+      * Not it won't scroll page on expandable open when navbar large collapsed
+    * Treeview
+      * Changed style to use/set item `min-height` instead of `height`
+    * View
+      * Now it will be also auto initialized on dynamically created panel open
+    * Minor fixes
+
+# [v5.7.8](https://github.com/framework7io/framework7/compare/v5.7.7...v5.7.8) - June 13, 2020
+  * Core
+    * Card
+      * Expandable card now has `user-select: none` when it is closed
+    * Router Component
+      * Fixed issue with parsing scoped styles that have `"{"` content
+  * React/Svelte/Vue
+    * Badge
+      * Added support for Tooltip with `tooltip` and `tooltipTrigger` props
+    * Chip
+      * Added support for Tooltip with `tooltip` and `tooltipTrigger` props
+  * Minor fixes
+
 # [v5.7.7](https://github.com/framework7io/framework7/compare/v5.7.6...v5.7.7) - June 5, 2020
   * React/Svelte/Vue
     * ListInput

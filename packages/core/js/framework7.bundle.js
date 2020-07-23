@@ -1,5 +1,5 @@
 /**
- * Framework7 5.7.7
+ * Framework7 5.7.10
  * Full featured mobile HTML framework for building iOS & Android apps
  * https://framework7.io/
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: June 5, 2020
+ * Released on: July 14, 2020
  */
 
 (function (global, factory) {
@@ -6670,7 +6670,7 @@
       return router;
     }
 
-    if (url || templateUrl || componentUrl) {
+    if (url || templateUrl || componentUrl || component) {
       router.allowPageChange = false;
     }
 
@@ -7832,7 +7832,7 @@
       return router;
     }
 
-    if (url || templateUrl || componentUrl) {
+    if (url || templateUrl || componentUrl || component) {
       router.allowPageChange = false;
     }
 
@@ -10367,7 +10367,6 @@
     var fired = false;
     var methodName;
     var method;
-    var customArgs = [];
     var needMethodBind = true;
 
     if (handlerString.indexOf('(') < 0) {
@@ -10405,11 +10404,11 @@
       while ( len-- ) args[ len ] = arguments[ len ];
 
       var e = args[0];
+      var customArgs = [];
       if (once && fired) { return; }
       if (stop) { e.stopPropagation(); }
       if (prevent) { e.preventDefault(); }
       fired = true;
-
       if (handlerString.indexOf('(') < 0) {
         customArgs = args;
       } else {
@@ -11667,7 +11666,8 @@
       style = componentString.split('<style scoped>')[1].split('</style>')[0];
       style = style
         .replace(/{{this}}/g, ("[data-f7-" + id + "]"))
-        .replace(/[\n]?([^{^}]*){/ig, function (string, rules) {
+        .replace(/[\n]?([^{^}]*){/gi, function (string, rules) {
+          if (rules.indexOf('"') >= 0 || rules.indexOf("'") >= 0) { return string; }
           // eslint-disable-next-line
           rules = rules
             .split(',')
@@ -12170,17 +12170,17 @@
           app.views.create(viewEl, viewParams);
         });
       },
-      modalOpen: function modalOpen(modal) {
+      'modalOpen panelOpen': function onOpen(instance) {
         var app = this;
-        modal.$el.find('.view-init').each(function (index, viewEl) {
+        instance.$el.find('.view-init').each(function (index, viewEl) {
           if (viewEl.f7View) { return; }
           var viewParams = $(viewEl).dataset();
           app.views.create(viewEl, viewParams);
         });
       },
-      modalBeforeDestroy: function modalBeforeDestroy(modal) {
-        if (!modal || !modal.$el) { return; }
-        modal.$el.find('.view-init').each(function (index, viewEl) {
+      'modalBeforeDestroy panelBeforeDestroy': function onClose(instance) {
+        if (!instance || !instance.$el) { return; }
+        instance.$el.find('.view-init').each(function (index, viewEl) {
           var view = viewEl.f7View;
           if (!view) { return; }
           view.destroy();
@@ -28036,14 +28036,26 @@
           sb.$disableButtonEl.css(("margin-" + (app.rtl ? 'left' : 'right')), '0px');
         }
         if (sb.expandable) {
-          if (sb.$el.parents('.navbar').hasClass('navbar-large') && sb.$pageEl) {
-            sb.$pageEl.find('.page-content').addClass('with-searchbar-expandable-enabled');
+          var $navbarEl = sb.$el.parents('.navbar');
+          if ($navbarEl.hasClass('navbar-large') && sb.$pageEl) {
+            var $pageContentEl = sb.$pageEl.find('.page-content');
+            var $titleLargeEl = $navbarEl.find('.title-large');
+            $pageContentEl.addClass('with-searchbar-expandable-enabled');
+            if ($navbarEl.hasClass('navbar-large') && $navbarEl.hasClass('navbar-large-collapsed') && $titleLargeEl.length && $pageContentEl.length) {
+              $pageContentEl.transition(0);
+              $pageContentEl[0].scrollTop -= $titleLargeEl[0].offsetHeight;
+              setTimeout(function () {
+                $pageContentEl.transition('');
+              }, 200);
+            }
           }
-          if (app.theme === 'md' && sb.$el.parents('.navbar').length) {
-            sb.$el.parents('.navbar').addClass('with-searchbar-expandable-enabled');
+          if (app.theme === 'md' && $navbarEl.length) {
+            $navbarEl.addClass('with-searchbar-expandable-enabled');
           } else {
-            sb.$el.parents('.navbar').addClass('with-searchbar-expandable-enabled');
-            sb.$el.parents('.navbar-large').addClass('navbar-large-collapsed');
+            $navbarEl.addClass('with-searchbar-expandable-enabled');
+            if ($navbarEl.hasClass('navbar-large')) {
+              $navbarEl.addClass('navbar-large-collapsed');
+            }
           }
         }
         if (sb.$hideOnEnableEl) { sb.$hideOnEnableEl.addClass('hidden-by-searchbar'); }
@@ -28088,25 +28100,40 @@
       sb.$inputEl.val('').trigger('change');
       sb.$el.removeClass('searchbar-enabled searchbar-focused searchbar-enabled-no-disable-button');
       if (sb.expandable) {
-        if (sb.$el.parents('.navbar').hasClass('navbar-large') && sb.$pageEl) {
-          sb.$pageEl.find('.page-content').removeClass('with-searchbar-expandable-enabled').addClass('with-searchbar-expandable-closing');
+        var $navbarEl = sb.$el.parents('.navbar');
+        var $pageContentEl = sb.$pageEl && sb.$pageEl.find('.page-content');
+
+        if ($navbarEl.hasClass('navbar-large') && $pageContentEl.length) {
+          var $titleLargeEl = $navbarEl.find('.title-large');
           sb.$el.transitionEnd(function () {
-            sb.$pageEl.find('.page-content').removeClass('with-searchbar-expandable-closing');
+            $pageContentEl.removeClass('with-searchbar-expandable-closing');
           });
+          if ($navbarEl.hasClass('navbar-large') && $navbarEl.hasClass('navbar-large-collapsed') && $titleLargeEl.length) {
+            var scrollTop = $pageContentEl[0].scrollTop;
+            var titleLargeHeight = $titleLargeEl[0].offsetHeight;
+            if (scrollTop > titleLargeHeight) {
+              $pageContentEl.transition(0);
+              $pageContentEl[0].scrollTop = scrollTop + titleLargeHeight;
+              setTimeout(function () {
+                $pageContentEl.transition('');
+              }, 200);
+            }
+          }
+          $pageContentEl.removeClass('with-searchbar-expandable-enabled').addClass('with-searchbar-expandable-closing');
         }
-        if (app.theme === 'md' && sb.$el.parents('.navbar').length) {
-          sb.$el.parents('.navbar')
+        if (app.theme === 'md' && $navbarEl.length) {
+          $navbarEl
             .removeClass('with-searchbar-expandable-enabled with-searchbar-expandable-enabled-no-transition')
             .addClass('with-searchbar-expandable-closing');
           sb.$el.transitionEnd(function () {
-            sb.$el.parents('.navbar').removeClass('with-searchbar-expandable-closing');
+            $navbarEl.removeClass('with-searchbar-expandable-closing');
           });
         } else {
-          sb.$el.parents('.navbar')
+          $navbarEl
             .removeClass('with-searchbar-expandable-enabled with-searchbar-expandable-enabled-no-transition')
             .addClass('with-searchbar-expandable-closing');
           sb.$el.transitionEnd(function () {
-            sb.$el.parents('.navbar').removeClass('with-searchbar-expandable-closing');
+            $navbarEl.removeClass('with-searchbar-expandable-closing');
           });
           if (sb.$pageEl) {
             sb.$pageEl.find('.page-content').trigger('scroll');
@@ -39009,6 +39036,11 @@
       if ($targetEl && $targetEl.length > 0) {
         targetWidth = $targetEl.outerWidth();
         targetHeight = $targetEl.outerHeight();
+        if (typeof targetWidth === 'undefined' && typeof targetHeight === 'undefined') {
+          var clientRect = $targetEl[0].getBoundingClientRect();
+          targetWidth = clientRect.width;
+          targetHeight = clientRect.height;
+        }
 
         var targetOffset = $targetEl.offset();
         targetOffsetLeft = targetOffset.left - app.left;
