@@ -45,8 +45,52 @@
       </a>
     </td>
     <td align="center" valign="middle">
-      <a href="https://www.securcom.me/" target="_blank">
-        <img width="160" src="https://framework7.io/i/sponsors/securcom.png">
+      <a href="https://monovm.com/linux-vps/" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/monovm.jpg">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://findmate.app" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/findmate.png">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle">
+      <a href="https://www.collegepaperworld.com/research-paper.html" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/collegeresearchpaper.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://casinofiables.com/" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/casinofiables.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.gunsbet.com" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/gunsbet.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://www.realtimecommunicationsworld.com" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/realtime.jpg">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://vpn-review.com/vpn-for-torrenting" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/vpn.png">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle">
+      <a href="https://papersowl.com/write-my-essay-please" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/papersowl.png">
+      </a>
+    </td>
+    <td align="center" valign="middle">
+      <a href="https://tutlance.com" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/tutlance.png">
       </a>
     </td>
     <td align="center" valign="middle">
@@ -54,16 +98,9 @@
         <img width="160" src="https://framework7.io/i/sponsors/edubirdie.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://paraphrasetools.com" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/paraphrasetools.png">
-      </a>
-    </td>
-    <td align="center" valign="middle">
-      <a href="https://divi-discount.com/elegant-themes/" target="_blank">
-        <img width="160" src="https://framework7.io/i/sponsors/divi-discount.png">
       </a>
     </td>
     <td align="center" valign="middle">
@@ -71,18 +108,13 @@
         <img width="160" src="https://framework7.io/i/sponsors/bonusfinder.png">
       </a>
     </td>
-    <td align="center" valign="middle">
-      <a href="http://ananyamultitech.com/" target="_blank">
-        <img width="160" src="https://framework7.io/i/sponsors/ananya.png">
-      </a>
-    </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://kqapi.us" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/kqapius.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://writersperhour.com/write-my-paper" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/writersperhour.jpg">
@@ -103,13 +135,13 @@
         <img width="160" src="https://framework7.io/i/sponsors/usave.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://bid4papers.com/write-my-essay.html" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/bid4papers.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://kidoverse.app" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/kidoverse.png">
@@ -130,11 +162,17 @@
         <img width="160" src="https://framework7.io/i/sponsors/blokt.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://wappler.io/" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/wappler.png">
       </a>
     </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 
@@ -156,18 +194,18 @@ Support Framework7 development by [pledging on Patreon](https://www.patreon.com/
 
 [WFM Buddy](https://www.wfmbuddy.com/) - WFM Buddy - Delighting your Workforce<br>
 [CodersRank](https://codersrank.io/?utm_source=partner&utm_medium=referral&utm_campaign=vladimir) - CodersRank - Ultimate Profile For Coders<br>
-[Sparheld.de](https://www.sparheld.de/) - Sparheld.de - save shopping online
+[Sparheld.de](https://www.sparheld.de/) - Sparheld.de - save shopping online<br>
 [Privict](https://privicy.com/) - Privacy control for consumers<br>
+
 [Join here!](https://www.patreon.com/bePatron?patAmt=250.0&exp=1&u=4109762&rid=830877)
 
 ---
 
 ### \$100 Silver Sponsor
 
-[Infatica](https://infatica.io) - Global Peer-to-Business Proxy Network
+[Infatica](https://infatica.io) - Global Peer-to-Business Proxy Network<br>
 [Thorium Builder](https://www.thoriumbuilder.com/) - Full visual Framework7 app builder<br>
 Colin Adams ([App Valley](https://appvalley.vip/))<br>
-Pavol Cvengros ([securCom Inc](https://www.securcom.me/))<br>
 Mason Fok ([tommy](http://mytommy.com))<br>
 
 [Join here!](https://www.patreon.com/bePatron?patAmt=100.0&exp=1&u=4109762&rid=830841)
@@ -176,22 +214,26 @@ Mason Fok ([tommy](http://mytommy.com))<br>
 
 ### \$50+ Top Supporter
 
+[College Papers for Sale | Buy Research Paper Online](https://www.collegepaperworld.com/research-paper.html)<br>
+[Casino En Ligne Canada, Les Meilleurs Casinos Virtuels Canadiens](https://casinofiables.com/)<br>
+[GunsBet Casino](https://www.gunsbet.com)<br>
+[Real Time Communications World](https://www.realtimecommunicationsworld.com)<br>
+[PapersOwl - Write My Essay For Me](https://papersowl.com/write-my-essay-please)<br>
+[Tutlance.com - Pay For Homework Answers, Assignments and Essay Solutions](https://tutlance.com)<br>
 [EduBirdie - The professional essay writing service for students who can't even](https://edubirdie.com)<br>
-Daniel Fratus<br>
+[Findmate - International Dating](https://findmate.app)<br>
 [Paraphrasing tool- rewrite, paraphrase your article](https://paraphrasetools.com)<br>
-[Divi-Discount.com - Divi Discount](https://divi-discount.com/elegant-themes/)<br>
 [www.bonus.com.de](https://www.bonus.com.de/)<br>
 [Writers Per Hour](https://writersperhour.com/write-my-paper) - Write My Paper For Me<br>
 [Bid4Papers](https://bid4papers.com/write-my-essay.html) - Write My Essay<br>
 [COLOGNE WEBDESIGN](https://www.colognewebdesign.de/)<br>
 [Kqapius, INC.](https://kqapi.us)<br>
-[Ananya MultiTech Private Limited](http://ananyamultitech.com/)<br>
 [Rise](https://rise.co) - Creative Web Development Agency<br>
 [usave](https://usave.co.uk/utilities/broadband) - compare broadband deals on usave.co.uk<br>
 [Kidoverse](https://kidoverse.app) - App for kids to learn, play, create and explore<br>
 [CyberBrain IT Services](https://www.cyberbrain.nl/)<br>
 [HICAPPS](https://hicapps.cl/) - Health Informatics Custom APPs<br>
-Michael Russell
+Michael Russell<br>
 [Blokt](https://blokt.com/) - Cryptocurrency News<br>
 Alexey Victorov<br>
 [Wappler](https://wappler.io) - Visual Web App Creator, offers full visual Framework7 builder<br>
@@ -213,7 +255,7 @@ Danny Redfern<br>
 ---
 
 ### \$10+ Supporter
-
+Jim Leliveld<br>
 David Fall<br>
 Wolfgang Bochar<br>
 Picolé de Chuchu<br>

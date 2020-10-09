@@ -274,6 +274,7 @@
     if (typeof $$props.onChange === 'function') $$props.onChange(...args);
     if (type === 'texteditor') {
       dispatch('textEditorChange', [args[1]]);
+      if (typeof $$props.onTextEditorChange === 'function') $$props.onTextEditorChange(...args);
     }
   }
 
@@ -483,10 +484,10 @@
                 value={typeof value === 'undefined' ? '' : value}
                 resizable={resizable}
                 placeholder={placeholder}
-                on:textEditorFocus={onFocus}
-                on:textEditorBlur={onBlur}
-                on:textEditorInput={onInput}
-                on:textEditorChange={onChange}
+                onTextEditorFocus={onFocus}
+                onTextEditorBlur={onBlur}
+                onTextEditorInput={onInput}
+                onTextEditorChange={onChange}
                 {...textEditorParams}
               />
             {:else}
@@ -666,10 +667,10 @@
               value={typeof value === 'undefined' ? '' : value}
               resizable={resizable}
               placeholder={placeholder}
-              on:textEditorFocus={onFocus}
-              on:textEditorBlur={onBlur}
-              on:textEditorInput={onInput}
-              on:textEditorChange={onChange}
+              onTextEditorFocus={onFocus}
+              onTextEditorBlur={onBlur}
+              onTextEditorInput={onInput}
+              onTextEditorChange={onChange}
               {...textEditorParams}
             />
           {:else}

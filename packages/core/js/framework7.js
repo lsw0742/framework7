@@ -1,5 +1,5 @@
 /**
- * Framework7 5.7.10
+ * Framework7 5.7.12
  * Full featured mobile HTML framework for building iOS & Android apps
  * https://framework7.io/
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: July 14, 2020
+ * Released on: September 3, 2020
  */
 
 (function (global, factory) {
@@ -7962,14 +7962,15 @@
       if (previousRoute && modalToClose) {
         var isBrokenPushState = Device.ie || Device.edge || (Device.firefox && !Device.ios);
         var needHistoryBack = router.params.pushState && navigateOptions.pushState !== false;
-        if (needHistoryBack && !isBrokenPushState) {
+        var currentRouteWithoutPushState = router.currentRoute && router.currentRoute.route && router.currentRoute.route.options && router.currentRoute.route.options.pushState === false;
+        if (needHistoryBack && !isBrokenPushState && !currentRouteWithoutPushState) {
           History.back();
         }
         router.currentRoute = previousRoute;
         router.history.pop();
         router.saveHistory();
 
-        if (needHistoryBack && isBrokenPushState) {
+        if (needHistoryBack && isBrokenPushState && !currentRouteWithoutPushState) {
           History.back();
         }
 
@@ -10460,6 +10461,10 @@
         if (attrName === 'readonly') {
           attrName = 'readOnly';
         }
+        if (tagName === 'option' && attrName === 'value') {
+          if (!data.attrs) { data.attrs = {}; }
+          data.attrs.value = attrValue;
+        }
         if (booleanProps.indexOf(attrName) >= 0) {
           // eslint-disable-next-line
           data.props[attrName] = attrValue === false ? false : true;
@@ -10577,6 +10582,7 @@
     if (tagName === 'slot') {
       return getSlots(el, context, app, initial);
     }
+
     return h(
       tagName,
       getData(el, context, app, initial, isRoot, tagName),

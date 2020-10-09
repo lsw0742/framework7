@@ -2,6 +2,31 @@
 
 # Change Log
 
+# [v5.7.12](https://github.com/framework7io/framework7/compare/v5.7.11...v5.7.12) - September 3, 2020
+  * Core
+    * Autocomplete
+      * Added `searchbarSpellcheck` parameter to enable/disable spell check on searchbar's input. Disabled by default
+    * Panel
+      * Now accepts new `containerEl` parameter to be able be mounted to other element rather than root
+    * Smart Select
+      * Added `searchbarSpellcheck` parameter to enable/disable spell check on searchbar's input. Disabled by default
+  * React/Svelte/Vue
+    * Searchbar
+      * Added `spellcheck` prop to set `spellcheck` attributte on input element
+    * ListInput
+      * Fixed not working `onTextEditorChange` prop in Svelte component
+    * Minor fixes
+
+# [v5.7.11](https://github.com/framework7io/framework7/compare/v5.7.10...v5.7.11) - August 17, 2020
+  * Core
+    * Gauge
+      * Fixed issue when gauge text wasn't appear on update
+    * Router Component
+      * Fixed issue when empty `value` attribute was removed on `<option>` element
+  * Svelte
+    * List
+      * Fixed issue with not working `sortableSort` event
+
 # [v5.7.10](https://github.com/framework7io/framework7/compare/v5.7.9...v5.7.10) - July 14, 2020
   * Core
     * Tooltip
@@ -676,7 +701,7 @@
     ```
 * **Panel**
   * Panels functionality has been fully reworked and now behaves more like a modals, which means we now can have as many panels as we want (or need) not limited to only 2 (left and right) panels.
-  * The following parameter has been removed from `app.panel` parameters: `leftBreakpoint`, `rightBreakpoint`, `swipe`, `swipeActiveArea`, `swipeColoseAtiveSide`, `swipeOnlyClose`, `swipeThreshold`, `closeByBackdropClick`.
+  * The following parameter has been removed from `app.panel` parameters: `leftBreakpoint`, `rightBreakpoint`, `swipe`, `swipeActiveArea`, `swipeCloseActiveAreaSide`, `swipeOnlyClose`, `swipeThreshold`, `closeByBackdropClick`.
   * Now every panel must be initialized separately and panel parameters must be specified for each panel.
   * It is now possible to auto init the panel by adding `panel-init` class and specify such panel parameters with `data-` attributes, e.g.:
     ```html
@@ -686,7 +711,7 @@
     ```
   * Each panel supports new set of parameters:
     * `backdrop` - enables backdrop
-    * `backdropEl` - specify custom backdop element
+    * `backdropEl` - specify custom backdrop element
     * `collapsedBreakpoint` (number) - app width when panel becomes partially visible (collapsed)
     * `visibleBreakpoint` (number) - app width when panel becomes fully visible
     * `swipe` (boolean) - makes panel swipeable
@@ -704,8 +729,8 @@
     * `disableResizable()`
     * `enableSwipe()`
     * `disableSwipe()`
-  * `app.panel.open(panel)/close(panel)` methods now can receive panel element (or CSS selector) of the panel to open/close. `left` and `right` values are still work buton only if you have only one left or right panel
-  * The following F7 instance props and methods removed and indended to be used on panel instance instead:
+  * `app.panel.open(panel)/close(panel)` methods now can receive panel element (or CSS selector) of the panel to open/close. `left` and `right` values are still work but on only if you have only one left or right panel
+  * The following F7 instance props and methods removed and intended to be used on panel instance instead:
     * `app.panel.enableSwipe()`
     * `app.panel.disableSwipe()`
     * `app.panel.enableResizableSwipe()`
@@ -1674,7 +1699,7 @@
       * Fixed issue when going back with enabled `pushState` could produce double pages back in Firefox
       * Fixed issue when changing routable swipeable tabs wasn't trigger `routeChanged` event
       * Single-file Router Components:
-        * It can now treat component template as ES template literal. Addional `es` attribute is required on template to enable, e.g. `<template es>`
+        * It can now treat component template as ES template literal. Additional `es` attribute is required on template to enable, e.g. `<template es>`
         * It is now rendered with Virtual DOM (Snabbdom library) for layout auto updating 🎉
         * It has new `$setState(mergeState)` method to set new component state and force component to update its layout
     * Searchbar
@@ -1684,7 +1709,7 @@
     * Input
       * Fixed wrong resizable textarea calculation in Firefox
     * Stepper
-      * Has new "manual input mode". When enabled it allows to type value from keyboar and check fractional part with defined accurancy. Also, when enabled, then `step` parameter is ignored during typing. It has 3 new parameters:
+      * Has new "manual input mode". When enabled it allows to type value from keyboard and check fractional part with defined accurancy. Also, when enabled, then `step` parameter is ignored during typing. It has 3 new parameters:
         * `manualInputMode: false` - enables manual input mode
         * `decimalPoint: 4` - number of digits after dot
         * `buttonsEndInputMode: true` - disables manual input mode on Stepper's button click
@@ -1850,11 +1875,11 @@
     * Card
       * New `outline` prop to make card outline
     * Chip
-      * New `outline` prop to make card outline
+      * New `outline` prop to make chip outline
     * Fab
       * New `text` prop to add text to FAB and make it as Extended FAB
       * New `label` prop for `FabButton` to add label for fab button
-    * Simplified conditional icon props for Icon, Link and Button components: `if-ios` -> `is`, `if-md` -> `md`, `icon-if-ios` -> `icon-ios`, `icon-if-md` -> `icon-md`
+    * Simplified conditional icon props for Icon, Link and Button components: `if-ios` -> `ios`, `if-md` -> `md`, `icon-if-ios` -> `icon-ios`, `icon-if-md` -> `icon-md`
     * Input
       * New `error-message-force` prop to force error message to show. Works in case of `validate` is omitted
     * Messagebar
