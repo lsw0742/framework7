@@ -1048,11 +1048,13 @@ class Router extends Framework7Class {
       if (!initUrl) {
         initUrl = documentUrl;
       }
-      if (document.location.search && initUrl.indexOf('?') < 0) {
-        initUrl += document.location.search;
-      }
-      if (document.location.hash && initUrl.indexOf('#') < 0) {
-        initUrl += document.location.hash;
+      if (initUrl === document.location.pathname) {
+        if (document.location.search && initUrl.indexOf('?') < 0) {
+          initUrl += document.location.search;
+        }
+        if (document.location.hash && initUrl.indexOf('#') < 0) {
+          initUrl += document.location.hash;
+        }
       }
     } else {
       if (pushStateRoot && documentUrl.indexOf(pushStateRoot) >= 0) {
