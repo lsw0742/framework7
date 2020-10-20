@@ -947,11 +947,15 @@ class Router extends Framework7Class {
 
     // trigger other customized Events
     if (callback === 'afterIn') {
-      $pageEl.trigger('page:show', page);
-      router.emit('pageShow', page);
+      if (router.view === router.app.views.current) {
+        $pageEl.trigger('page:show', $pageEl[0]);
+        router.emit('pageShow', $pageEl[0]);
+      }
     } else if (callback === 'afterOut') {
-      $pageEl.trigger('page:hide', page);
-      router.emit('pageHide', page);
+      if (router.view === router.app.views.current) {
+        $pageEl.trigger('page:hide', $pageEl[0]);
+        router.emit('pageHide', $pageEl[0]);
+      }
     }
   }
 

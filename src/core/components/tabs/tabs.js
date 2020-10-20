@@ -115,8 +115,8 @@ const Tab = {
 
       // Trigger 'hide' event on tab view's current page
       $oldTabEl.children('.page.page-current').forEach((pageEl) => {
-        pageEl.f7Page.$el.trigger('page:hide', pageEl.f7Page);
-        app.emit('pageHide', pageEl.f7Page);
+        $(pageEl).trigger('page:hide', pageEl);
+        app.emit('pageHide', pageEl);
       });
     }
 
@@ -134,8 +134,8 @@ const Tab = {
 
       // Trigger 'show' event on tab view's current page
       $newTabEl.children('.page.page-current').forEach((pageEl) => {
-        pageEl.f7Page.$el.trigger('page:show', pageEl.f7Page);
-        app.emit('pageShow', pageEl.f7Page);
+        $(pageEl).trigger('page:show', pageEl);
+        app.emit('pageShow', pageEl);
       });
     }
 

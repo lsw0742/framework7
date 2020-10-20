@@ -426,13 +426,13 @@ export default {
       });
       this.dispatchEvent('page:afterin pageAfterIn', page);
     },
-    onPageShow(page) {
-      if (this.eventTargetEl !== page.el) return;
-      this.dispatchEvent('page:show pageShow', page);
+    onPageShow(pageEl) {
+      if (this.eventTargetEl !== pageEl) return;
+      this.dispatchEvent('page:show pageShow', pageEl);
     },
-    onPageHide(page) {
-      if (this.eventTargetEl !== page.el) return;
-      this.dispatchEvent('page:hide pageHide', page);
+    onPageHide(pageEl) {
+      if (this.eventTargetEl !== pageEl) return;
+      this.dispatchEvent('page:hide pageHide', pageEl);
     },
     onPageBeforeRemove(page) {
       if (this.eventTargetEl !== page.el) return;
