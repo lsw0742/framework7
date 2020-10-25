@@ -77,6 +77,10 @@ export namespace Searchbar {
     expandable: boolean
     /** Searchbar parameters */
     params : Parameters
+    /** Validate searchbar input*/
+    validate(): Searchbar
+    /** Reset Validate searchbar input*/
+    resetValidate(): Searchbar
     /** Force searchbar to search passed query */
     search(query: string): Searchbar
     /** Enable/activate searchbar */

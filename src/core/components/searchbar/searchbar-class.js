@@ -273,6 +273,26 @@ class Searchbar extends FrameworkClass {
     return sb;
   }
 
+  validate() {
+    const sb = this;
+    const rules = sb.$inputEl.prop('rules');
+
+    for (let i = 0; rules && i < rules.length; i += 1) {
+      const v = rules[i](sb.$inputEl.val());
+      if (typeof v === 'string' || v === false) {
+        sb.$inputEl.addClass('input-invalid');
+        return false;
+      }
+    }
+    sb.resetValidate();
+    return true;
+  }
+
+  resetValidate() {
+    const sb = this;
+    sb.$inputEl.removeClass('input-invalid');
+  }
+
   clear(e) {
     const sb = this;
     if (!sb.query && e && $(e.target).hasClass('searchbar-clear')) {

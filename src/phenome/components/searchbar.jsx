@@ -113,6 +113,8 @@ export default {
       type: Boolean,
       default: true,
     },
+    // validate rules
+    rules: Array,
     ...Mixins.colorProps,
   },
   render() {
@@ -135,6 +137,7 @@ export default {
       id,
       value,
       inline,
+      rules,
     } = props;
 
     if (clearButton) {
@@ -185,7 +188,7 @@ export default {
           placeholder={placeholder}
           type="search"
           spellCheck={spellcheck}
-          domProps={{ value }}
+          domProps={{ value, rules }}
           onInput={self.onInput}
           onChange={self.onChange}
           onFocus={self.onFocus}
@@ -326,6 +329,14 @@ export default {
     if (self.f7Searchbar && self.f7Searchbar.destroy) self.f7Searchbar.destroy();
   },
   methods: {
+    validate() {
+      if (!this.f7Searchbar) return undefined;
+      return this.f7Searchbar.validate();
+    },
+    resetValidate() {
+      if (!this.f7Searchbar) return;
+      this.f7Searchbar.resetValidate();
+    },
     search(query) {
       if (!this.f7Searchbar) return undefined;
       return this.f7Searchbar.search(query);
