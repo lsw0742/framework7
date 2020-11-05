@@ -56,6 +56,16 @@
     </td>
   </tr>
   <tr>
+    <td>
+      <a href="https://goread.io/buy-instagram-likes" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/goread.png">
+      </a>
+    </td>
+    <td>
+      <a href="https://www.coupons4printing.com" target="_blank">
+        <img width="160" src="https://framework7.io/i/sponsors/coupons4printing.jpg">
+      </a>
+    </td>
     <td align="center" valign="middle">
       <a href="https://www.collegepaperworld.com/research-paper.html" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/collegeresearchpaper.png">
@@ -71,6 +81,8 @@
         <img width="160" src="https://framework7.io/i/sponsors/gunsbet.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://www.realtimecommunicationsworld.com" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/realtime.jpg">
@@ -81,8 +93,6 @@
         <img width="160" src="https://framework7.io/i/sponsors/vpn.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://papersowl.com/write-my-essay-please" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/papersowl.png">
@@ -98,6 +108,8 @@
         <img width="160" src="https://framework7.io/i/sponsors/edubirdie.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://paraphrasetools.com" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/paraphrasetools.png">
@@ -108,8 +120,6 @@
         <img width="160" src="https://framework7.io/i/sponsors/bonusfinder.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://kqapi.us" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/kqapius.png">
@@ -125,6 +135,8 @@
         <img width="160" src="https://framework7.io/i/sponsors/colognewebdesign.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://rise.co" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/rise.png">
@@ -135,8 +147,6 @@
         <img width="160" src="https://framework7.io/i/sponsors/usave.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://bid4papers.com/write-my-essay.html" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/bid4papers.png">
@@ -152,6 +162,8 @@
         <img width="160" src="https://framework7.io/i/sponsors/cyberbrain.png">
       </a>
     </td>
+  </tr>
+  <tr>
     <td align="center" valign="middle">
       <a href="https://hicapps.cl/" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/hicapps.png">
@@ -162,15 +174,11 @@
         <img width="160" src="https://framework7.io/i/sponsors/blokt.png">
       </a>
     </td>
-  </tr>
-  <tr>
     <td align="center" valign="middle">
       <a href="https://wappler.io/" target="_blank">
         <img width="160" src="https://framework7.io/i/sponsors/wappler.png">
       </a>
     </td>
-    <td></td>
-    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -213,7 +221,9 @@ Mason Fok ([tommy](http://mytommy.com))<br>
 ---
 
 ### \$50+ Top Supporter
-
+[Buy Instagram Likes from Goread](https://goread.io/buy-instagram-likes)<br>
+[Coupons4Printing: Promotion Codes, Coupons, Coupon Codes](https://www.coupons4printing.com)<br>
+SIMPLY LAB<br>
 [College Papers for Sale | Buy Research Paper Online](https://www.collegepaperworld.com/research-paper.html)<br>
 [Casino En Ligne Canada, Les Meilleurs Casinos Virtuels Canadiens](https://casinofiables.com/)<br>
 [GunsBet Casino](https://www.gunsbet.com)<br>
